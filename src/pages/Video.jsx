@@ -106,44 +106,36 @@ const Video = ({ darkMode }) => {
 
   return (
     <Container>
-      <Content>
-        <VideoWrapper>
-          {currentVideo ? (
+      {currentVideo ? (
+        <Content>
+          <VideoWrapper>
             <VideoFrame src={currentVideo.videourl} controls />
-          ) : (
-            <div>Loading video...</div>
-          )}
-        </VideoWrapper>
-        {currentVideo ? (
+          </VideoWrapper>
           <Title>{currentVideo.title}</Title>
-        ) : (
-          <div>Loading title...</div>
-        )}
-        <Details>
-          {currentVideo ? (
+          <Details>
             <Info>
               {currentVideo.views} views • {format(currentVideo.created_at)}
             </Info>
-          ) : (
-            <div>Loading info...</div>
-          )}
-        </Details>
-        <Hr />
-        <Channel>
-          <ChannelInfo>
-            <Image src={channel.img} />
-            <ChannelDetail>
-              <ChannelName>{channel.name}</ChannelName>
-            </ChannelDetail>
-          </ChannelInfo>
-        </Channel>
-        <Hr />
-        <Product
-          userId={channel._id}
-          videoId={currentVideo._id}
-          darkMode={darkMode}
-        />
-      </Content>
+          </Details>
+          <Hr />
+          <Channel>
+            <ChannelInfo>
+              <Image src={channel.img} />
+              <ChannelDetail>
+                <ChannelName>{channel.name}</ChannelName>
+              </ChannelDetail>
+            </ChannelInfo>
+          </Channel>
+          <Hr />
+          <Product
+            userId={channel._id}
+            videoId={currentVideo._id}
+            darkMode={darkMode}
+          />
+        </Content>
+      ) : (
+        <div>Loading video...</div>
+      )}
       {currentUser ? <Comments videoId={currentVideo._id} /> : <SignIn />}
     </Container>
   );
