@@ -60,7 +60,7 @@ const SignIn = () => {
   const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
-    if (!name || !email || !password) {
+    if (!name || !password) {
       setErrorMessage("All fields are required");
       return;
     }
