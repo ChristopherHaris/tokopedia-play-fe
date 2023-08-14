@@ -115,8 +115,6 @@ const SignIn = () => {
       });
   };
 
-  //TODO: REGISTER FUNCTIONALITY
-
   return (
     <Container>
       <Wrapper>
