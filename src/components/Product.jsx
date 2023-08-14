@@ -69,7 +69,7 @@ const Product = ({ videoId, darkMode, userId }) => {
         producturl: productUrl,
         video_id: videoId,
       };
-      const res = await axios.post("/api/product", newProduct);
+      await axios.post("/api/product", newProduct);
       closeAddProductModal();
       fetchProducts();
     } catch (error) {
