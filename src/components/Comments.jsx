@@ -50,7 +50,9 @@ const Comments = ({ videoId }) => {
 
   const fetchComments = async () => {
     try {
-      const res = await axios.get(`/api/comment/${videoId}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_URL}/api/comment/${videoId}`
+      );
       setComments(res.data);
       commentContainerRef.current.scrollTop =
         commentContainerRef.current.scrollHeight;
@@ -83,7 +85,10 @@ const Comments = ({ videoId }) => {
         comment: newCommentText,
         video_id: videoId,
       };
-      const res = await axios.post(`/api/comment/`, newComment);
+      const res = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/api/comment/`,
+        newComment
+      );
       setNewCommentText("");
       setComments((prevComments) => [res.data, ...prevComments]);
       fetchComments();
