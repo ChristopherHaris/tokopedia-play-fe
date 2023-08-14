@@ -36,7 +36,9 @@ const Product = ({ videoId, darkMode, userId }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`/api/product/${videoId}`); // Replace with your API endpoint
+      const res = await axios.get(
+        `${process.env.SERVER_URL}/api/product/${videoId}`
+      ); // Replace with your API endpoint
       setProducts(res.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -69,7 +71,7 @@ const Product = ({ videoId, darkMode, userId }) => {
         producturl: productUrl,
         video_id: videoId,
       };
-      await axios.post("/api/product", newProduct);
+      await axios.post(`${process.env.SERVER_URL}/api/product`, newProduct);
       closeAddProductModal();
       fetchProducts();
     } catch (error) {

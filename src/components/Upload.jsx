@@ -156,7 +156,9 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/video", { ...inputs });
+    const res = await axios.post(`${process.env.SERVER_URL}/api/video`, {
+      ...inputs,
+    });
     setOpen(false);
     res.status === 200 && navigate(`/video/${res.data._id}`);
   };
@@ -202,7 +204,12 @@ const Upload = ({ setOpen }) => {
             onChange={(e) => setImg(e.target.files[0])}
           />
         )}
-        <Button disabled={videoPerc < 100 || imgPerc < 100} onClick={handleUpload}>Upload</Button>
+        <Button
+          disabled={videoPerc < 100 || imgPerc < 100}
+          onClick={handleUpload}
+        >
+          Upload
+        </Button>
       </Wrapper>
     </Container>
   );

@@ -67,7 +67,10 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("/api/auth/signin", { name, password });
+      const res = await axios.post(
+        `${process.env.SERVER_URL}/api/auth/signin`,
+        { name, password }
+      );
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
@@ -83,11 +86,14 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("/api/auth/signup", {
-        name,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${process.env.SERVER_URL}/api/auth/signup`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       dispatch(loginSuccess(res.data.user));
     } catch (err) {
       dispatch(loginFailure());
@@ -100,7 +106,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         axios
-          .post("/api/auth/google", {
+          .post(`${process.env.SERVER_URL}/api/auth/google`, {
             name: result.user.displayName,
             email: result.user.email,
             img: result.user.photoURL,
@@ -146,7 +152,6 @@ const SignIn = () => {
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Button onClick={handleSignup}>Sign up</Button>
       </Wrapper>
-
     </Container>
   );
 };
