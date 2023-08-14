@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await axios.get(`/api/video`);
+        const res = await axios.get(`https://tokopedia-play-clone-backend-production.up.railway.app/api/video`);
         setVideos(res.data);
       } catch (error) {
         console.error("Error fetching videos:", error);
