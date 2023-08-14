@@ -89,7 +89,7 @@ const Video = ({ darkMode }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`/api/video/${path}`);
+        const videoRes = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/video/${path}`);
         const channelRes = await axios.get(
           `/api/user/${videoRes.data.user_id}`
         );
