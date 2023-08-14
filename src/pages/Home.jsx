@@ -26,9 +26,11 @@ const Home = () => {
 
   return (
     <Container>
-      {videos.length !== 0
-        ? videos.map((video) => <Card key={video._id} video={video} />)
-        : null}
+      {videos.length === 0 ? (
+        <p>No videos available</p>
+      ) : (
+        videos.map((video) => <Card key={video._id} video={video} />)
+      )}
     </Container>
   );
 };
