@@ -26,9 +26,9 @@ const Home = () => {
 
   return (
     <Container>
-      {videos.map((video) => (
-        <Card key={video._id} video={video} />
-      ))}
+      {videos.length !== 0
+        ? videos.map((video) => <Card key={video._id} video={video} />)
+        : null}
     </Container>
   );
 };
