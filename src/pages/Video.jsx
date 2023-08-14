@@ -108,7 +108,11 @@ const Video = ({ darkMode }) => {
     <Container>
       <Content>
         <VideoWrapper>
-          <VideoFrame src={currentVideo.videourl} controls />
+          {currentVideo ? (
+            <VideoFrame src={currentVideo.videourl} controls />
+          ) : (
+            <div>Loading video...</div>
+          )}
         </VideoWrapper>
         <Title>{currentVideo.title}</Title>
         <Details>
