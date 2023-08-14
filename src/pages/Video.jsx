@@ -106,7 +106,7 @@ const Video = ({ darkMode }) => {
 
   return (
     <Container>
-      {currentVideo ? (
+      {currentVideo !== null ? ( // Check if currentVideo is not null
         <Content>
           <VideoWrapper>
             <VideoFrame src={currentVideo.videourl} controls />
@@ -136,7 +136,7 @@ const Video = ({ darkMode }) => {
       ) : (
         <div>Loading video...</div>
       )}
-      {currentUser ? <Comments videoId={currentVideo._id} /> : <SignIn />}
+      {currentUser ? <Comments videoId={currentVideo ? currentVideo._id : null} /> : <SignIn />}
     </Container>
   );
 };
