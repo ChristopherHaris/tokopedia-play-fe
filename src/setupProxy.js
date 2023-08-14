@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: process.env.SERVER_URL,
+      target: process.env.REACT_APP_SERVER_URL,
       changeOrigin: true,
     })
   );

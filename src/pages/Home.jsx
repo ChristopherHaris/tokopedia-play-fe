@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await axios.get(`${process.env.SERVER_URL}/api/video`);
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/video`);
         setVideos(res.data);
       } catch (error) {
         console.error("Error fetching videos:", error);
@@ -23,7 +23,7 @@ const Home = () => {
     };
     fetchVideos();
   }, []);
-
+  console.log(process.env.REACT_APP_SERVER_URL)
   console.log(videos)
 
   return (
