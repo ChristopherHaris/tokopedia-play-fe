@@ -17,6 +17,7 @@ const Home = () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/video`);
         setVideos(res.data);
+        console.log(res.data); 
       } catch (error) {
         console.error("Error fetching videos:", error);
       }
