@@ -67,7 +67,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("https://tokopedia-play-clone-backend-production.up.railway.app/api/auth/signin", { name, password });
+      const res = await axios.post("/api/auth/signin", { name, password });
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
