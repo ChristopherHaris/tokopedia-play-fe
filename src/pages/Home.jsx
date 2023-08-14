@@ -24,11 +24,11 @@ const Home = () => {
     fetchVideos();
   }, []);
 
+  console.log(videos)
+
   return (
     <Container>
-      {videos.length === 0 ? (
-        <p>No videos available</p>
-      ) : (
+      {videos && (
         videos.map((video) => <Card key={video._id} video={video} />)
       )}
     </Container>
