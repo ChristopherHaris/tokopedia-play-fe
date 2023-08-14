@@ -45,6 +45,7 @@ const Product = ({ videoId, darkMode, userId }) => {
 
   useEffect(() => {
     fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
   const openAddProductModal = () => {

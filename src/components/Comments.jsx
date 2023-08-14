@@ -64,6 +64,7 @@ const Comments = ({ videoId }) => {
     return () => {
       setComments([]);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
   useEffect(() => {
