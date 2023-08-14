@@ -157,7 +157,7 @@ const Upload = ({ setOpen }) => {
   const handleUpload = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "https://tokopedia-play-clone-backend-production.up.railway.app/api/video",
+      "https://tokopedia-play-clone-backend-production.up.railway.app/api/video/",
       { ...inputs }
     );
     setOpen(false);
