@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: process.env.SERVER_URL,
+      target: 'https://tokopedia-play-clone-backend-production.up.railway.app',
       changeOrigin: true,
     })
   );
