@@ -156,7 +156,7 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post(`${process.env.SERVER_URL}/api/video`, {
+    const res = await axios.post(`/api/video`, {
       ...inputs,
     });
     setOpen(false);
