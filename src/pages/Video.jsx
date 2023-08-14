@@ -114,11 +114,19 @@ const Video = ({ darkMode }) => {
             <div>Loading video...</div>
           )}
         </VideoWrapper>
-        <Title>{currentVideo.title}</Title>
+        {currentVideo ? (
+          <Title>{currentVideo.title}</Title>
+        ) : (
+          <div>Loading title...</div>
+        )}
         <Details>
-          <Info>
-            {currentVideo.views} views • {format(currentVideo.created_at)}
-          </Info>
+          {currentVideo ? (
+            <Info>
+              {currentVideo.views} views • {format(currentVideo.created_at)}
+            </Info>
+          ) : (
+            <div>Loading info...</div>
+          )}
         </Details>
         <Hr />
         <Channel>
