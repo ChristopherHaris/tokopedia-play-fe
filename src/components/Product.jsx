@@ -37,7 +37,7 @@ const Product = ({ videoId, darkMode, userId }) => {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_URL}/api/product/${videoId}`
+      `${process.env.REACT_APP_SERVER_URL}/api/product/${videoId}`
       );
       setProducts(res.data);
     } catch (error) {
