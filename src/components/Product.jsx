@@ -37,8 +37,8 @@ const Product = ({ videoId, darkMode, userId }) => {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_URL}api/product/${videoId}`
-      ); // Replace with your API endpoint
+        `${process.env.REACT_APP_SERVER_URL}/api/product/${videoId}`
+      );
       setProducts(res.data);
     } catch (error) {
       console.error("Error fetching products:", error);
