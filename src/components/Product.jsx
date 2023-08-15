@@ -84,72 +84,78 @@ const Product = ({ videoId, darkMode, userId }) => {
 
   return (
     <Box maxW="120vh" mt="20px" overflow="hidden">
-      <Flex direction="row" flexWrap="wrap" p={4} rounded="md" boxShadow="md">
-        {products.map((product) => (
-          <Card
-            key={product._id}
-            maxW="sm"
-            borderWidth="1px"
-            rounded="md"
-            m={2}
-            bg={darkMode ? darkTheme.bgLighter : lightTheme.bgLighter}
-          >
-            <CardBody>
-              <Image
-                src={product.productimg}
-                alt={product.title}
-                borderRadius="lg"
-                minH="2xs"
-                maxH="xs"
-                width="100%"
-                align="center"
-              />
-              <Stack mt="6" spacing="3">
-                <Heading
-                  size="md"
-                  color={darkMode ? darkTheme.textSoft : lightTheme.textSoft}
-                >
-                  {product.title}
-                </Heading>
-                <Text color="blue.600" fontSize="2xl">
-                  Rp {product.price}
-                </Text>
-              </Stack>
-            </CardBody>
-            <Divider />
-            <CardFooter>
-              <ButtonGroup spacing="2">
-                <Button variant="solid" colorScheme="blue">
-                  Buy now
-                </Button>
-                <Button variant="ghost" colorScheme="blue">
-                  Add to cart
-                </Button>
-                <Button
-                  as="a"
-                  href={product.producturl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="outline"
-                  colorScheme="blue"
-                >
-                  View Product
-                </Button>
-              </ButtonGroup>
-            </CardFooter>
-          </Card>
-        ))}
-        {currentUser._id === userId ? (
-          <Button
-            m={2}
-            variant="solid"
-            colorScheme="blue"
-            onClick={openAddProductModal}
-          >
-            Add Product
-          </Button>
-        ) : null}
-      </Flex>
+      {products.length > 0 ? (
+        <Flex direction="row" flexWrap="wrap" p={4} rounded="md" boxShadow="md">
+          {products.map((product) => (
+            <Card
+              key={product._id}
+              maxW="sm"
+              borderWidth="1px"
+              rounded="md"
+              m={2}
+              bg={darkMode ? darkTheme.bgLighter : lightTheme.bgLighter}
+            >
+              <CardBody>
+                <Image
+                  src={product.productimg}
+                  alt={product.title}
+                  borderRadius="lg"
+                  minH="2xs"
+                  maxH="xs"
+                  width="100%"
+                  align="center"
+                />
+                <Stack mt="6" spacing="3">
+                  <Heading
+                    size="md"
+                    color={darkMode ? darkTheme.textSoft : lightTheme.textSoft}
+                  >
+                    {product.title}
+                  </Heading>
+                  <Text color="blue.600" fontSize="2xl">
+                    Rp {product.price}
+                  </Text>
+                </Stack>
+              </CardBody>
+              <Divider />
+              <CardFooter>
+                <ButtonGroup spacing="2">
+                  <Button variant="solid" colorScheme="blue">
+                    Buy now
+                  </Button>
+                  <Button variant="ghost" colorScheme="blue">
+                    Add to cart
+                  </Button>
+                  <Button
+                    as="a"
+                    href={product.producturl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outline"
+                    colorScheme="blue"
+                  >
+                    View Product
+                  </Button>
+                </ButtonGroup>
+              </CardFooter>
+            </Card>
+          ))}
+          {currentUser._id === userId ? (
+            <Button
+              m={2}
+              variant="solid"
+              colorScheme="blue"
+              onClick={openAddProductModal}
+            >
+              Add Product
+            </Button>
+          ) : null}
+        </Flex>
+      ) : (
+        <Text mt="4" textAlign="center" color="gray.500">
+          No products available yet.
+        </Text>
+      )}
       <Modal isOpen={isAddingProduct} onClose={closeAddProductModal}>
         <ModalOverlay />
         <ModalContent

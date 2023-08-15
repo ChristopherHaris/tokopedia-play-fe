@@ -134,7 +134,7 @@ const Video = ({ darkMode }) => {
           />
         </Content>
       ) : (
-        <div>Loading video...</div>
+        null
       )}
       {currentUser ? <Comments videoId={currentVideo ? currentVideo._id : null} /> : <SignIn />}
     </Container>

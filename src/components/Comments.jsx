@@ -97,14 +97,16 @@ const Comments = ({ videoId }) => {
     }
   };
 
-  //TODO: ADD NEW COMMENT FUNCTIONALITY
-
   return (
     <Container>
       <CommentContainer ref={commentContainerRef}>
-        {comments.map((comment) => {
-          return <Comment key={comment._id} comment={comment} />;
-        })}
+        {comments.length > 0 ? (
+          comments.map((comment) => (
+            <Comment key={comment._id} comment={comment} />
+          ))
+        ) : (
+          null
+        )}
       </CommentContainer>
       <NewComment>
         {currentUser && currentUser.img ? (
