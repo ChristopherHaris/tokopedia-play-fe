@@ -106,7 +106,7 @@ const Video = ({ darkMode }) => {
 
   return (
     <Container>
-      {currentVideo !== null ? ( // Check if currentVideo is not null
+      {currentVideo !== null ? (
         <Content>
           <VideoWrapper>
             <VideoFrame src={currentVideo.videourl} controls />
