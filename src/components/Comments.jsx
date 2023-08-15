@@ -51,7 +51,7 @@ const Comments = ({ videoId }) => {
   const fetchComments = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_SERVER_URL}/api/comment/${videoId}`
+        `${process.env.REACT_APP_SERVER_URL}/api/comment/${videoId}`
       );
       setComments(res.data);
       commentContainerRef.current.scrollTop =

@@ -7,7 +7,7 @@ import { format } from "timeago.js";
 import Comments from "../components/Comments";
 import Product from "../components/Product";
 import { fetchSuccess } from "../redux/videoSlice";
-import SignIn from "./SignIn";
+import { Text } from "@chakra-ui/react";
 
 const Container = styled.div`
   display: flex;
@@ -133,10 +133,14 @@ const Video = ({ darkMode }) => {
             darkMode={darkMode}
           />
         </Content>
+      ) : null}
+      {currentUser ? (
+        <Comments videoId={currentVideo ? currentVideo._id : null} />
       ) : (
-        null
+        <Text mt="4" textAlign="center" color="gray.500">
+          Please Sign In to Comment
+        </Text>
       )}
-      {currentUser ? <Comments videoId={currentVideo ? currentVideo._id : null} /> : <SignIn />}
     </Container>
   );
 };
