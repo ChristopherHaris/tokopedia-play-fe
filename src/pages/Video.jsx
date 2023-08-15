@@ -137,7 +137,7 @@ const Video = ({ darkMode }) => {
         </Content>
       ) : null}
       {currentUser ? (
-        <Comments videoId={currentVideo ? currentVideo._id : null} />
+        <Comments videoId={currentVideo._id ? currentVideo._id : null} />
       ) : (
         <Text mt="4" textAlign="center" color="gray.500">
           Please Sign In to Comment
