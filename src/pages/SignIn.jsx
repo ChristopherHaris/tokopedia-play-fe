@@ -69,7 +69,10 @@ const SignIn = () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/api/auth/signin`,
-        { name, password }
+        { name, password },
+        {
+          withCredentials: true,
+        }
       );
       dispatch(loginSuccess(res.data));
     } catch (err) {
@@ -92,6 +95,9 @@ const SignIn = () => {
           name,
           email,
           password,
+        },
+        {
+          withCredentials: true,
         }
       );
       dispatch(loginSuccess(res.data.user));

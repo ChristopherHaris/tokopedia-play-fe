@@ -158,7 +158,10 @@ const Upload = ({ setOpen }) => {
     e.preventDefault();
     const res = await axios.post(
       `${process.env.REACT_APP_SERVER_URL}/api/video`,
-      { ...inputs }
+      { ...inputs },
+      {
+        withCredentials: true,
+      }
     );
     setOpen(false);
     res.status === 200 && navigate(`/video/${res.data._id}`);

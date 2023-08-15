@@ -73,7 +73,10 @@ const Product = ({ videoId, darkMode, userId }) => {
       };
       await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/api/product`,
-        newProduct
+        newProduct,
+        {
+          withCredentials: true,
+        }
       );
       closeAddProductModal();
       fetchProducts();

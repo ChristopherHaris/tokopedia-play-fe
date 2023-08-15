@@ -87,7 +87,10 @@ const Comments = ({ videoId }) => {
       };
       const res = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/api/comment/`,
-        newComment
+        newComment,
+        {
+          withCredentials: true,
+        }
       );
       setNewCommentText("");
       setComments((prevComments) => [res.data, ...prevComments]);
@@ -100,13 +103,11 @@ const Comments = ({ videoId }) => {
   return (
     <Container>
       <CommentContainer ref={commentContainerRef}>
-        {comments.length > 0 ? (
-          comments.map((comment) => (
-            <Comment key={comment._id} comment={comment} />
-          ))
-        ) : (
-          null
-        )}
+        {comments.length > 0
+          ? comments.map((comment) => (
+              <Comment key={comment._id} comment={comment} />
+            ))
+          : null}
       </CommentContainer>
       <NewComment>
         {currentUser && currentUser.img ? (
