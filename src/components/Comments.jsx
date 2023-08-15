@@ -103,7 +103,7 @@ const Comments = ({ videoId }) => {
   return (
     <Container>
       <CommentContainer ref={commentContainerRef}>
-        {comments.length > 0
+        {comments.length > 0 && comments !== null
           ? comments.map((comment) => (
               <Comment key={comment._id} comment={comment} />
             ))

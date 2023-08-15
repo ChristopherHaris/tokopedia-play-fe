@@ -106,7 +106,9 @@ const Video = ({ darkMode }) => {
 
   return (
     <Container>
-      {currentVideo !== null && currentVideo !== undefined ? (
+      {currentVideo !== null &&
+      currentVideo !== undefined
+      ? (
         <Content>
           <VideoWrapper>
             <VideoFrame src={currentVideo.videourl} controls />
@@ -127,17 +129,15 @@ const Video = ({ darkMode }) => {
             </ChannelInfo>
           </Channel>
           <Hr />
-          {currentVideo !== null && channel !== null ? (
-            <Product
-              userId={channel._id}
-              videoId={currentVideo._id}
-              darkMode={darkMode}
-            />
-          ) : null}
+          <Product
+            userId={channel._id}
+            videoId={currentVideo._id}
+            darkMode={darkMode}
+          />
         </Content>
       ) : null}
-      {currentVideo._id ? (
-        <Comments videoId={currentVideo._id ? currentVideo._id : null} />
+      {currentUser ? (
+        <Comments videoId={currentVideo ? currentVideo._id : null} />
       ) : (
         <Text mt="4" textAlign="center" color="gray.500">
           Please Sign In to Comment
